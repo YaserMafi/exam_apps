@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import datetime
 
-app = Flask(name)
+app = Flask(__name__)
 
 @app.route("/")
 def home():
@@ -30,5 +30,5 @@ def submit():
     return render_template("index.html")
 
 
-if name == "main":
+if __name__ == "main":
     app.run(host="0.0.0.0", port=5000)
