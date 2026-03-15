@@ -1,29 +1,27 @@
-from flask import Flask, render_template, request
-import datetime
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exam Form</title>
+</head>
 
-app = Flask(name)
+<body>
 
-@app.route('/')
-def home():
-    return render_template("index.html")
+<h2>Exam Form</h2>
 
-@app.route('/submit', methods=['POST'])
-def submit():
+<form action="/submit" method="post">
 
-    name = request.form['name']
-    age = request.form['age']
-    q1 = request.form['q1']
+Name:<br>
+<input type="text" name="name"><br><br>
 
-    time = datetime.datetime.now()
+Age:<br>
+<input type="text" name="age"><br><br>
 
-    with open("answers.txt","a",encoding="utf-8") as f:
-        f.write(f"Name: {name}\n")
-        f.write(f"Age: {age}\n")
-        f.write(f"Answer: {q1}\n")
-        f.write(f"Time: {time}\n")
-        f.write("-----------------\n")
+Question: What is Python?<br>
+<input type="text" name="q1"><br><br>
 
-    return "جواب ثبت شد"
+<input type="submit" value="Submit">
 
-if name == "main":
-    app.run(host="0.0.0.0", port=5000)
+</form>
+
+</body>
+</html>
